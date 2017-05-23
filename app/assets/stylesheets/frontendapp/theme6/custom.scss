@@ -1,0 +1,80 @@
+$bg-color: #fff;
+$header-color: #113;
+$font-color: #fff;
+$theme-color: #6f4fc8;
+$border-color: #5c37c5;
+
+$progress-color: $theme-color;
+
+$question-color: #000;
+
+$button-color: $theme-color;
+$button-border-color: $border-color;
+$button-hover-color: $button-border-color;
+$button-hover-border-color: $button-hover-color;
+$button-selected-color: $button-border-color;
+
+$star-color: $theme-color;
+$star-border-color: $border-color;
+
+$textarea-border-color: $theme-color;
+
+body {
+    color: $font-color;
+    background: $bg-color;
+}
+
+/* Header */
+.global-header {
+    background: $header-color;
+}
+
+.feedback-progress .svipk-progress {
+    background: $progress-color;
+}
+
+.feedback-progress .svipk-progress:after {
+    background: $progress-color;
+    border: 0.125rem solid $progress-color;
+}
+
+/* Question */
+.widget .widget-content-light {
+    color: $question-color;
+}
+
+
+/* Button */
+.btn-primary, .question-choice .btn {
+    background: $button-color;
+    border-color: $button-border-color;
+}
+
+.btn-primary:hover, .question-choice .btn:hover {
+    background: $button-hover-color;
+    border-color: $button-hover-border-color;
+}
+
+/* Star */
+.question-stars:hover .star-radio+.star:hover ~ .star:before, .question-stars:hover .star-radio+.star:hover:before
+{
+    color: $star-color;
+    text-shadow: 0px 0px;
+    //text-shadow: 1px 1px 1px $star-border-color,2px 2px 2px $star-border-color
+}
+
+/* Text area */
+.question-input:hover, .question-input:focus, .question-input.active {
+    border-color: $textarea-border-color;
+}
+
+.question-stars .star-radio:checked ~ .star:before, .question-stars .star-radio+.star:hover ~ .star:before, .question-stars .star-radio+.star:hover:before, .question-stars:hover .star-radio+.star:hover ~ .star:before, .question-stars:hover .star-radio+.star:hover:before {
+color: $theme-color;
+text-shadow:0px 0px;
+//text-shadow: 1px 1px 1px $border-color,2px 2px 2px $border-color
+}
+
+.question-choice input[type="radio"]:checked+.btn {
+    background: $button-selected-color;
+    border-color: $button-selected-color;
+}

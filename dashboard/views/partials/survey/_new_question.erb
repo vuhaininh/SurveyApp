@@ -1,0 +1,72 @@
+<div class="block" ng-controller="QuestionCreateController">
+  <div class="block-title ui-sortable-handle">
+    <div class="block-options pull-right">
+      <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-primary" data-toggle="block-toggle-fullscreen"><i class="fa fa-desktop"></i></a>
+    </div>
+    <h2><%= I18n.t('survey.newQuestion') %></h2>
+  </div>
+  <div class="block-content">
+    <% form_tag url(:survey, :new_question, survey_index: @survey.index), method: "post", :enctype => "multipart/form-data", id: "form-validation", class: "form-horizontal form-bordered ui-formwizard" do %>
+        <div id="create-question-form" class="step ui-formwizard-content" style="display: block;">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="question_type"><%= I18n.t('survey.questionType') %></label>
+
+              <div class="col-md-6">
+                <select id="question_type" ng-model="questionType" name="question[type]" class="select-select2" style="width: 100%;" data-placeholder="Choose one..">
+                  <% for question_type in @question_types %>
+                      <option value="<%= question_type.id.to_s %>"><%= question_type.question_type_translations.first.name %> </option>
+                  <% end %>
+                </select>
+
+              </div>
+            </div>
+
+            <div class="form-group" ng-hide="questionType == QUESTION_TYPES.INFO">
+              <label class="col-md-4 control-label" for="question_name"><%= I18n.t('question') %></label>
+
+              <div class="col-md-6">
+                <input type="text" id="question_name" ng-model="questionName" name="question[name]" class="form-control ui-wizard-content question_name" placeholder="<%= I18n.t('survey.inputQuestionName') %>.." maxlength="76">
+              </div>
+            </div>
+            <div class="form-group" ng-show="questionType == QUESTION_TYPES.INFO">
+              <label class="col-md-4 control-label"><%= I18n.t('question') %></label>
+
+              <div class="col-md-6">
+                <textarea type="text" class="form-control" name="question[info]"></textarea>
+              </div>
+            </div>
+
+            <fieldset ng-show="questionType == QUESTION_TYPES.MULTIPLE_CHOICES">
+              <div class="form-group">
+                <label class="col-md-4 control-label"><%= I18n.t('survey.questionChoice') %> <br> <%= I18n.t('survey.pressTab') %> </label>
+
+                <div class="col-md-8">
+                  <input type="text" id="multiple_choice" name="question[multiple_choice]" class="input-tags">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label"><%= I18n.t('survey.multipleSelection') %>?</label>
+
+                <div class="col-md-8">
+                  <label class="switch switch-primary">
+                    <input type="checkbox" id="multiple_selection" name="question[multiple_selection]" class="form-control" ng-model="multipleSelection">
+                    <span></span>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset ng-show="questionType == QUESTION_TYPES.IMAGE" class="image-choices">
+              <%= partial "partials/survey/new_image_question" %>
+            </fieldset>
+          </div>
+        </div>
+        <div class="form-group form-actions">
+          <div class="col-md-8 col-md-offset-4">
+            <button type="submit" class="btn btn-sm btn-primary ui-wizard-content ui-formwizard-button" id="question_submit" value="Submit"><%= I18n.t('survey.saveQuestion') %>
+            </button>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

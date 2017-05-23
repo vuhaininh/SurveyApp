@@ -1,0 +1,86 @@
+$footer-bgcolor: #7f8c8d !default;
+$footer-bgcolor: rgba($header-bgcolor, .8);
+$footer-bgcolor: lighten($header-bgcolor, 20%);
+$footer-bgcolor: darken($main-bgcolor, 5%);
+$footer-bgcolor: $main-bgcolor;
+.global-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: $footer-bgcolor;
+  z-index: 9999;
+  @media screen and (max-height: 17em) {
+    display: none;
+  }
+  // height: 3rem;
+}
+
+.footer-menu {
+
+  padding: 0 $gutter;
+  float: right;
+  width: 100%;
+  @include clearfix();
+
+  &.hide {
+    display: none;
+  }
+
+  @media screen and (max-height: 17em) {
+    display: none;
+  }
+
+}
+
+.footer-action {
+  float: left;
+  padding: $gutter/2 $gutter/4;
+  width: 25%;
+}
+
+.footer-btn {
+  border: none;
+
+  width: 100%;
+  font-size: 1.1rem;
+
+  background: $main-bgcolor;
+  background: #e4e4e4;
+  color: $success;
+  color: #777;
+
+  &:hover {
+    background-color: #ddd;
+  }
+
+  &:active {
+    color: $primary;
+  }
+
+  @media screen and (orientation: portrait) {
+
+    font-size: 1.2rem;
+
+    &:before {
+      margin-right: 0;
+    }
+
+    .text {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+
+    font-size: 1.2rem;
+
+    &:before {
+      margin-right: 0;
+    }
+
+    .text {
+      display: none;
+    }
+  }
+}

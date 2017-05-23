@@ -1,0 +1,69 @@
+                <div id="sidebar">
+                    <!-- Wrapper for scrolling functionality -->
+                    <div id="sidebar-scroll">
+                        <!-- Sidebar Content -->
+                        <div class="sidebar-content">
+                            <!-- Brand -->
+                            <a href="<%= url :survey_list, :index %>" class="sidebar-brand">
+                                <i class="gi gi-flash"></i>
+                                <span class="sidebar-nav-mini-hide"><strong>Survey in Pocket</strong></span>
+                            </a>
+                            <!-- END Brand -->
+
+                            <!-- User Info -->
+                            <div class="sidebar-section sidebar-user clearfix sidebar-nav-mini-hide">
+                                <div class="sidebar-user-avatar">
+                                    <a href="<%= url :survey_list, :index %>">
+                                        <%= image_tag('placeholders/avatars/avatar2.jpg')%>
+                                    </a>
+                                </div>
+                                <div class="sidebar-user-name"><%= @user.first_name + " " + @user.last_name%></div>
+                                <div class="sidebar-user-links">
+
+                                    <!-- Opens the user settings modal that can be found at the bottom of each page (page_footer.html in PHP version) -->
+                                    
+                                </div>
+                            </div>
+                            <!-- END User Info -->
+                            <!-- Sidebar Navigation -->
+                            <ul class="sidebar-nav">
+
+                                <li>
+                                    <a href="<%= url :survey_list, :index %>"><i class="gi gi-notes_2 sidebar-nav-icon"></i>
+                                      <span class="sidebar-nav-mini-hide"><%= I18n.t('sidebar.allSurveys') %></span></a>
+                                </li>
+                                <li>
+                                    <a href="<%= url :survey_list, :new %>"><i class="fa fa-file-o sidebar-nav-icon"></i>
+                                      <span class="sidebar-nav-mini-hide"><%= I18n.t('sidebar.createNewSurvey') %></span></a>
+                                </li>
+								<% if is_admin %>
+									<li>
+										<a href="<%= url :account_list, :index %>" class="sidebar-nav-menu">
+                                          <i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i>
+										  <i class="gi gi-certificate sidebar-nav-icon"></i>
+                                          <span class="sidebar-nav-mini-hide"><%= I18n.t('sidebar.adminPanel') %></span>
+                                        </a>
+                                      <ul>
+                                        <li>
+                                          <a href="<%= url :account_list, :index %>"><%= I18n.t('sidebar.accountManagement') %></a></li>
+                                        <li>
+                                          <a href="<%= url :theme_list, :index %>"><%= I18n.t('sidebar.themeManagement') %></a>
+                                        </li>
+                                      </ul>
+									</li>
+
+								<% end %>
+                                <li>
+                                    <a href="<%= url :account, :index %>"><i class="gi gi-settings sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide"><%= I18n.t('sidebar.settings') %></span></a>
+                                </li>
+                                <li>
+                                    <a href="<%= url :session, :logout %>"><i class="gi gi-exit sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide"><%= I18n.t('sidebar.logout') %></span></a>
+                                </li>
+                            </ul>
+                            <!-- END Sidebar Navigation -->
+                        </div>
+                        <!-- END Sidebar Content -->
+                    </div>
+                    <!-- END Wrapper for scrolling functionality -->
+                </div>
+                

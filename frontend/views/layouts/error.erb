@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Survey in Pocket</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!--Put preferred Facebook preview image here-->
+  <meta property="og:image" content="your_image_here"/>
+  <meta name="author" content="Survey in Pocket">
+  <meta name="contact" content="info@surveyinpocket.com">
+  <meta name="copyright" content="&copy; 2014 surveyinpocket.com">
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  <%= stylesheet_link_tag '/assets/frontendapp/theme1/application' %>
+</head>
+<body>
+    <header class="global-header">
+      <div class="container-fluid clearfix title-bar">
+        <div class="col-xs-2 logo-container">
+          <!--<%= image_tag "text_logo.png", :class => "brand-logo pull-left" %>-->
+        </div>
+        <nav class="header-nav col-xs-10">
+          <div class="header-link active survey-name">
+            Survey in Pocket
+          </div>
+        </nav>
+      </div>
+
+    </header>
+    <div class="container-fluid feedback-container">
+      <div class="widget">
+        <div class="widget-content-light">
+        <%= yield %>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

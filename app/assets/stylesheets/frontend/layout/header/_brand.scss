@@ -1,0 +1,20 @@
+.brand-logo {
+	float: left;
+	width: 2rem;
+	height: 2rem;
+
+}
+
+.logo-container {
+    background: url('/s/images/text_logo.png') 0.5rem 0 no-repeat;
+    height: 2.5rem;
+    background-size: 90% 95%;
+
+    @media screen and (orientation: portrait){
+        width: 14%;
+    }
+
+    @media screen and (orientation: landscape){
+        width: 6%;
+    }
+}

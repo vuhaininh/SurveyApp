@@ -1,0 +1,6 @@
+# .env.test
+
+DB_HOST=localhost
+DB_DATABASE=mainline_test
+DB_USER=postgres
+DB_PASSWORD=postgres

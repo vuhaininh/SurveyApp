@@ -1,0 +1,8 @@
+    <div class="question-rating">
+      <span class="question-stars">
+        <% 5.downto(1) do |ii| %>
+        <input class="star-radio" type="radio" id="star-<%= @question.index %>-<%= ii %>" name="question[<%= @question.index %>]" value="<%= ii %>">
+        <label class="star" for="star-<%= @question.index %>-<%= ii %>"><%= ii %></label>
+      <% end %>
+      </span>
+    </div>

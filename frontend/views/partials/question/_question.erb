@@ -1,0 +1,30 @@
+<article class="animation-fadeInLeft <%= 'page question-page widget ' + (@question.index == 1 ? 'active' : 'inactive') %>" data-index="<%= @question.index %>">
+  <div class="col-xs-12">
+    <div class="widget-extra">
+      <% if @question.question_type_id != QuestionType::INFO %>
+          <div class="question-title">
+            <div class="widget-content-light question-title-inside">
+              <p><%= @question.questionText %></p>
+            </div>
+          </div>
+          <div class="question-content">
+
+            <% case @question.question_type_id
+                 when QuestionType::STAR_RATING %>
+                <%= partial "partials/question/star_rating" %>
+            <% when QuestionType::MULTIPLE_CHOICES %>
+                <%= partial "partials/question/multiple_choice" %>
+            <% when QuestionType::TEXT_INPUT %>
+                <%= partial "partials/question/text_input" %>
+            <% when QuestionType::SMILE_FACE %>
+                <%= partial "partials/question/smiley_faces" %>
+            <% when QuestionType::IMAGE %>
+                <%= partial "partials/question/image" %>
+            <% end %>
+          </div>
+      <% else %>
+          <%= partial "partials/question/information" %>
+      <% end %>
+    </div>
+  </div>
+</article>

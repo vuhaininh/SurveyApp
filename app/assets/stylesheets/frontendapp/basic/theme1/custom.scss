@@ -1,0 +1,140 @@
+$bg-color: #fff;
+$header-color: #3498db;
+$font-color: #fff;
+$theme-color: #3498db;
+$border-color: $theme-color;
+$font-weight: 300;
+
+$progress-color: #1c1;
+
+$question-color: #268;
+$question-weight: 500;
+
+$button-color: $theme-color;
+$button-border-color: $theme-color;
+$button-hover-color: #5faee3;
+//$button-hover-border-color: #2e8ece;
+$button-hover-border-color: #5faee3;
+$button-selected-color: #2980b9;
+
+$star-color: $theme-color;
+$star-border-color: #2980b9;
+
+$textarea-border-color: $theme-color;
+
+
+body {
+    color:$font-color;
+    background: $bg-color;
+    font-weight: $font-weight !important;
+}
+
+/* Header */
+.global-header {
+    background: $header-color;
+    height: 4rem;
+}
+
+.logo-container {
+    background: url('/s/images/logo_flat.png') 0.3rem 0.2rem no-repeat;
+    height: 3.2rem;
+    background-size: 90% 95%;
+
+    @media screen and (orientation: portrait){
+        width: 16vw;
+    }
+
+    @media screen and (orientation: landscape){
+        width: 8vw;
+    }
+}
+
+.survey-name {
+    font-size: 1.3rem;
+    font-weight: $font-weight;
+}
+
+.question-order {
+    font-size: 1rem;
+    font-weight: $font-weight;
+    padding-top: 0.5rem;
+}
+
+.header-nav {
+  height: 3.2rem;
+  @media screen and (orientation: portrait) {
+    width: 80vw;
+  }
+  @media screen and (orientation: landscape) {
+    width: 90vw;
+  }
+}
+
+.header-link {
+    line-height: 3rem;
+    padding-top: 0.3rem;
+}
+
+/* Progress */
+.feedback-progress {
+    top: 3.6rem;
+}
+
+.feedback-progress .svipk-progress {
+    background: $progress-color;
+}
+
+.feedback-progress .svipk-progress:after {
+    background: $progress-color;
+    border: 0.125rem solid $progress-color;
+}
+
+/* Question */
+.widget .widget-content-light {
+    color: $question-color;
+}
+
+.question-title {
+    font-weight: $question-weight;
+}
+
+
+/* Button */
+.btn-primary, .question-choice .btn {
+    background: $button-color;
+    border-color: $button-border-color;
+    font-weight: $font-weight;
+}
+
+.btn-primary:hover, .question-choice .btn:hover {
+    background: $button-hover-color;
+    border-color: $button-hover-border-color;
+}
+
+/* Star */
+.question-stars:hover .star-radio+.star:hover ~ .star:before, .question-stars:hover .star-radio+.star:hover:before
+{
+    color: $star-color;
+    text-shadow: 0px 0px;
+    //text-shadow: 1px 1px 1px $star-border-color,2px 2px 2px $star-border-color
+}
+
+/* Text area */
+.question-input:hover, .question-input:focus, .question-input.active {
+    border-color: $textarea-border-color;
+}
+
+.question-stars .star-radio:checked ~ .star:before, .question-stars .star-radio+.star:hover ~ .star:before, .question-stars .star-radio+.star:hover:before, .question-stars:hover .star-radio+.star:hover ~ .star:before, .question-stars:hover .star-radio+.star:hover:before {
+color: $theme-color;
+text-shadow:0px 0px;
+//text-shadow: 1px 1px 1px $border-color,2px 2px 2px $border-color
+}
+
+.question-choice input[type="radio"]:checked+.btn {
+    background: $button-selected-color;
+}
+
+/* Thank you */
+.ty-title {
+    font-weight: $font-weight;
+}

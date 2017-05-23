@@ -1,0 +1,60 @@
+  .btn {
+    width: 100%;
+    text-transform: none;
+    @extend .btn-primary;
+    padding: 0.3rem 0;
+  }
+  
+  .btn:hover, .btn:focus, .btn.focus {
+    color: #fff;
+  }
+
+.question-choices {
+  @include clearfix();
+  width: 100%;
+  @for $i from 1 through 3{
+    &[data-col="#{$i}"] .question-choice{
+      width: 100%/$i;
+    }
+  }
+  &[data-col="1"] .question-choice{
+    .btn{
+      display: block;
+      white-space: normal;
+      height: auto;
+      word-wrap: break-word;
+    }
+  }
+}
+
+.question-choice {
+  float: left;
+  padding: .3rem;
+  input[type="radio"], input[type="checkbox"] {
+    display: none;
+  }
+  cursor: pointer;
+  &.question-image{
+    img{
+      width: 100%;
+      &:hover{
+        border: 2px green;
+      }
+    }
+    .btn{
+      height: auto;
+    }
+  }
+  input[type="checkbox"]:checked+.btn, input[type="radio"]:checked+.btn {
+    &::before{
+      display: inline-block;
+      content: '\f00c';
+      font-family: fontawesome;
+      margin-right: 10px;
+    }
+  }
+}
+
+.resize .question-choice{
+  padding: 1rem;
+}

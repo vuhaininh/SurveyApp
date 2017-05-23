@@ -1,0 +1,47 @@
+<div class="modal fade" id="edit_theme_dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Edit theme</h4>
+      </div>
+      <div class="modal-body">
+        <% form_tag url(:theme_list, :edit_theme), method: "post", id: "edit-theme-form", class: "form-horizontal form-bordered" do %>
+            <div class="form-group">
+              <input type="hidden" name="theme[id]" id='theme_id'/>
+              <label class="col-xs-4 control-label" for="add-name">Theme Name</label>
+
+              <div class="col-xs-8">
+                <input type="text" id="add-name" name="theme[name]" class="form-control" placeholder="Enter Theme Name..">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-4 control-label" for="add-type">Theme Type</label>
+
+              <div class="col-xs-8">
+                <%= select_tag("theme[type]", :collection => @theme_types, :fields => [:last, :first], :id => "add-type", :class => "form-control") %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-4 control-label" for="add-status">Active</label>
+
+              <div class="col-xs-8 text-left">
+                <%= check_box_tag("theme[status]", :id => 'add-status') %>
+              </div>
+            </div>
+
+            <div class="form-group form-actions">
+              <div class="col-xs-9 col-xs-offset-3">
+                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> Save</button>
+                <button type="reset" class="btn btn-sm btn-default" data-dismiss="modal"><i class="fa fa-cancel"></i> Cancel</button>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div><!-- /.modal -->

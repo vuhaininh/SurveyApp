@@ -1,0 +1,95 @@
+%btn-flat {
+  position: relative;
+  display: inline-block;
+  width: 7.5em;
+  line-height: 2.7rem;
+  height: 2.5rem;
+  padding: 0;
+  font-family: $ui-font;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1em;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+
+  background-image: none;
+
+  border-style: solid;
+  border-width: 0 0 2px;
+  @include border-radius(.175em);
+
+  @include transition(background .5s ease);
+  // @include box-shadow( 1px 1px 2px rgba(#000, .2) );
+  @include box-sizing(content-box);
+
+  -moz-box-sizing: content-box;
+}
+
+@mixin btn-color ($color, $bgcolor, $border) {
+
+  color: $color;
+  background: $bgcolor;
+  @include text-shadow( 0 -1px 0 rgba(invert($color), .3));
+
+  border-color: $border;
+
+  &:hover {
+    background: lighten($bgcolor, 10%);
+    border-color: lighten($border, 5%);
+  }
+
+  &:active {
+    background: darken($bgcolor, 10%);
+    // border: none;
+    border-color: darken($bgcolor, 10%);
+    top: 2px;
+  }
+}
+
+// Main buttons
+.btn {
+  @extend %btn-flat;
+  @include btn-color(#444, $default, $default-dark);
+}
+
+.btn-primary {
+  @include btn-color(#fff, $primary, $primary-dark);
+}
+
+.btn-secondary {
+  @include btn-color(#fff, $secondary, $secondary-dark);
+}
+
+.btn-success {
+  @include btn-color(#fff, $success, $success-dark);
+}
+
+.btn-important {
+  @include btn-color(#fff, $important, $important-dark);
+}
+
+.btn-warning {
+  @include btn-color(#fff, $warning, $warning-dark);
+}
+
+.btn-info {
+  @include btn-color(#fff, $info, $info-dark);
+}
+
+.btn-wide {
+  width: 10em;
+}
+
+.btn-narrow {
+  width: 5em;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}

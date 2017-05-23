@@ -1,0 +1,10 @@
+<div class="block full hidden-xs">
+<div class="block-title">
+<h2><i class="fa fa-cloud-upload"></i> Upload <strong>File</strong></h2>
+</div>
+<% form_tag url(:upload, :new_file), method: "post",:enctype=>"multipart/form-data", :id => "upload-form",:class => "dropzone" do %>
+    <div class="dropzone-previews"></div>
+    <div class="dz-default dz-message"><button class="btn btn-add" type="button"><i class="fa fa-plus"></i>Add</button></div>
+<% end %>
+
+</div>

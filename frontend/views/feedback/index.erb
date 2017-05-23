@@ -1,0 +1,28 @@
+<%= partial 'partials/header/header' %>
+<script type="text/javascript">
+    window.autoRepeat = <%= @survey.auto_reset%>;
+    window.autoRepeatInterval = <%= @survey.auto_reset_interval%>;
+    window.redirectUrl = '<%= @survey.redirect_url%>';
+</script>
+<main>
+  <div class="container-fluid feedback-container">
+	<% form_tag url(:feedback, :index, id: @survey.oid), id: "feedback-form", autocomplete: "off" do %>
+		<div class="pages" data-index="1">
+			  <% if !@survey.questions.blank? %>
+				<% for @question in @survey.questions %>
+				  <%= partial "partials/question/question" %>		 
+				<% end %>
+			  <% end %>
+			  <button type="submit" class="btn btn-important btn-submit icon-send" style="display:none;">Submit</button>
+			  <input type="reset" style="display:none;">
+			<%= partial "partials/question/complete" %>
+            <div id="control-bar">
+              <button type="button" class="pull-right js-next" title="Next"><i class="fa fa-arrow-right"></i></button>
+              <button type="button" class="btn-full-screen pull-right" title="Full Screen"><i class="fa fa-arrows-alt"></i></button>
+              <button type="button" class="pull-right js-back" title="Previous"><i class="fa fa-arrow-left"></i></button>
+            </div>
+		</div>
+	<% end %>	
+  </div>
+</main>
+

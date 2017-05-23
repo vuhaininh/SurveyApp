@@ -1,0 +1,103 @@
+$star-empty: #bbb !default;
+$star: $highlight !default;
+$star: #0fa4f1;
+
+.question-rating {
+  color: $star-empty;
+  padding-top: 10%;
+  padding-top: 10vh;
+  margin: 0 auto;
+  width: 100%;
+  max-width:30rem;
+}
+%star-empty {
+  @extend %icon;
+  @extend .icon-star-empty;
+
+  &:before {
+    color: $star-empty;
+    display: block;
+    text-shadow: none;
+    margin-right: 0;
+  }
+}
+
+%star-full {
+  @extend %icon;
+  @extend .icon-star;
+
+  &:before {
+    color: $star;
+    display: block;
+    text-shadow: 1px 1px 1px darken($star, 10%),
+    2px 2px 2px darken($star, 10%);
+    margin-right: 0;
+  }
+}
+
+
+.question-stars {
+  @include clearfix();
+
+  .star {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 1%;
+    width: 18%;
+    &:active {
+      top: 3px;
+    }
+    &:before {
+      @include transition (background .5s ease-in-out);
+      @media screen and (orientation: portrait) {
+        padding: 0;
+        font-size: 2.5rem;
+      }
+
+      @media screen and (orientation: landscape) {
+        padding: 0;
+        font-size: 4rem;
+      }
+    }
+  }
+
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  .star-radio {
+    display: none;
+
+    & + label {
+      @extend %star-empty;
+    }
+
+    &:checked ~ .star,
+    & + .star:hover ~ .star,
+    & + .star:hover {
+      @extend %star-full;
+    }
+  }
+
+
+  &:hover .star-radio + .star {
+    @extend %star-empty;
+    &:before {
+      color: $star-empty;
+      text-shadow: none;
+    }
+  }
+
+  &:hover .star-radio + .star:hover ~ .star,
+  &:hover .star-radio + .star:hover{
+    @extend %star-full;
+    &:before {
+      display: block;
+      color: $star;
+      display: block;
+      text-shadow: 1px 1px 1px darken($star, 10%),
+        2px 2px 2px darken($star, 10%);
+      margin-right: 0;
+    }
+  }
+}

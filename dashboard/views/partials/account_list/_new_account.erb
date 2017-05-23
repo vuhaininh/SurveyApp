@@ -1,0 +1,52 @@
+<div class="block">
+		<div class="block-title">
+		<h2><i class="fa fa-plus"></i> Add New Account</h2>
+		</div>
+		<% form_tag url( :account_list, :new_account), method: "post", id: "create-account-form",class: "form-horizontal form-bordered" do %>
+			<div class="form-group">
+				<label class="col-xs-4 control-label" for="add-first-name">First Name</label>
+				<div class="col-xs-8">
+					<input type="text" id="add-first-name" name="account[first_name]" class="form-control" placeholder="Enter First Name..">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4 control-label" for="add-last-name">Last Name</label>
+				<div class="col-xs-8">
+					<input type="text" id="add-last-name" name="account[last_name]" class="form-control" placeholder="Enter Last Name..">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4 control-label" for="add-last-name">Email</label>
+				<div class="col-xs-8">
+					<input type="email" id="add-email" name="account[email]" class="form-control" placeholder="Enter Your Email..">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4 control-label" for="add-last-name">Password</label>
+				<div class="col-xs-8">
+					<input type="password" id="add-contact-email" name="account[password]" class="form-control" placeholder="Enter Password..">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4 control-label" for="add-last-name">Password Confirmation</label>
+				<div class="col-xs-8">
+					<input type="password" id="add-contact-email" name="account[password_confirmation]" class="form-control" placeholder="Confirm Password..">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-4 control-label" for="add-last-name">Role</label>
+				<div class="col-xs-8">
+					<select id="new_question_type" name="account[role]" class="select-select2" style="width: 100%;" data-placeholder="Choose one..">
+						<option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
+						<option value="user">User</option>
+						<option value="admin">Admin</option>								
+					</select>					
+				</div>
+			</div>			
+			<div class="form-group form-actions">
+			<div class="col-xs-9 col-xs-offset-3">
+			<button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Create Account</button>
+			</div>
+			</div>
+		<% end %>
+</div>

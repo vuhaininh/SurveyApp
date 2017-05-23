@@ -1,0 +1,105 @@
+@font-face {
+  font-family: 'dashboard';
+  src: url('../font/dashboard.eot?89021745');
+  src: url('../font/dashboard.eot?89021745#iefix') format('embedded-opentype'),
+       url('../font/dashboard.woff?89021745') format('woff'),
+       url('../font/dashboard.ttf?89021745') format('truetype'),
+       url('../font/dashboard.svg?89021745#dashboard') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'dashboard';
+    src: url('../font/dashboard.svg?89021745#dashboard') format('svg');
+  }
+}
+*/
+
+%icon:before, [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "dashboard";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-right: .5em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-spin:before { content: '\e800'; } /* '' */
+.icon-mail:before { content: '\e801'; } /* '' */
+.icon-star:before { content: '\e802'; width: auto} /* '' */
+.icon-star-empty:before { content: '\e803'; width: auto} /* '' */
+.icon-user:before { content: '\e804'; } /* '' */
+.icon-survey-list:before { content: '\e805'; } /* '' */
+.icon-ok:before { content: '\e806'; } /* '' */
+.icon-cancel:before { content: '\e807'; } /* '' */
+.icon-plus:before { content: '\e808'; } /* '' */
+.icon-add:before { content: '\e809'; } /* '' */
+.icon-completed:before { content: '\e80a'; } /* '' */
+.icon-link:before { content: '\e80b'; } /* '' */
+.icon-home:before { content: '\e80c'; } /* '' */
+.icon-result:before { content: '\e80d'; } /* '' */
+.icon-lock:before { content: '\e80e'; } /* '' */
+.icon-view:before { content: '\e80f'; } /* '' */
+.icon-share:before { content: '\e810'; } /* '' */
+.icon-edit:before { content: '\e811'; } /* '' */
+.icon-attention:before { content: '\e812'; } /* '' */
+.icon-trash:before { content: '\e813'; } /* '' */
+.icon-cog:before { content: '\e814'; } /* '' */
+.icon-full:before { content: '\e815'; } /* '' */
+.icon-clock:before { content: '\e816'; } /* '' */
+.icon-left:before { content: '\e817'; } /* '' */
+.icon-right:before { content: '\e818'; } /* '' */
+.icon-active:before { content: '\e819'; } /* '' */
+.icon-play:before { content: '\e81a'; } /* '' */
+.icon-send:before { content: '\e81b'; } /* '' */
+.icon-strike:before { content: '\e81c'; } /* '' */
+.icon-off:before { content: '\e81d'; } /* '' */
+.icon-menu:before { content: '\e81e'; } /* '' */
+.icon-check:before { content: '\e81f'; } /* '' */
+.icon-check-empty:before { content: '\e820'; } /* '' */
+.icon-circle:before { content: '\e821'; } /* '' */
+.icon-circle-empty:before { content: '\e822'; } /* '' */
+.icon-bug:before { content: '\e823'; } /* '' */
+.icon-sort:before { content: '\e824'; } /* '' */
+.icon-sort-down:before { content: '\e825'; } /* '' */
+.icon-sort-up:before { content: '\e826'; } /* '' */
+.icon-help:before { content: '\e827'; } /* '' */
+.icon-chart-pie:before { content: '\e828'; } /* '' */
+.icon-chart-bar:before { content: '\e829'; } /* '' */
+.icon-message:before { content: '\e82a'; } /* '' */
+.icon-question:before { content: '\e82b'; } /* '' */
+.icon-qrcode:before { content: '\e82d'; } /* '' */
+
+.icon-spin:before {
+  @extend .animate-spin;
+}

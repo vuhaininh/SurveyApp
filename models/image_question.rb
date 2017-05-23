@@ -1,0 +1,3 @@
+class ImageQuestion < Question
+
+end

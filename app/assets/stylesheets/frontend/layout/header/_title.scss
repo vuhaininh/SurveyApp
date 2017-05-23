@@ -1,0 +1,32 @@
+
+$survey-color: lighten($primary, 20%) !default;
+.survey-name {
+  display: inline-block;
+
+  width: 80%;
+
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: $gutter/2;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media screen and (orientation: portrait) {
+    margin-left: 0;
+  }
+
+  @media screen and (max-width: 400px)  {
+    margin-left: 0;
+  }
+
+  &:before {
+    font-size: 1rem;
+  }
+}
+
+.question-order {
+    font-size: 1rem;
+    float: right;
+}

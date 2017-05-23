@@ -1,0 +1,50 @@
+.question-smiley-faces {
+  width: 100%;
+  max-width:40rem;
+  @media screen and (orientation: portrait) {
+    padding-top: 15%;
+    padding-top: 15vh;
+    margin: 0 auto;
+  }
+  @media screen and (orientation: landscape) {
+    padding-top: 3.5%;
+    padding-top: 3.5vh;
+    margin: 0 auto;
+  }
+}
+.question-faces {
+	.smiley-radio {
+		position: absolute;
+		display:none;
+	}
+	label {
+		display: inline-block;
+		cursor: pointer;
+		max-width: 123px;
+        max-height: 123px;
+		img{
+			width:100%;
+		  -webkit-transition: all 0.1s ease;
+			 -moz-transition: all 0.1s ease;
+			   -o-transition: all 0.1s ease;
+			  -ms-transition: all 0.1s ease;
+				  transition: all 0.1s ease;
+		}
+	}
+    
+    label:hover {
+        opacity:.7;
+    }
+
+}
+
+.smiley-block {
+  @media screen and (orientation: portrait) {
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+  }
+  @media screen and (orientation: landscape) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}

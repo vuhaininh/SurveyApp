@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="col-lg-8">
+		<div class="block">
+			<div class="block-title">
+			<h2><strong> Accounts</strong></h2>
+			</div>
+			<div class="row style-alt">
+				<% for account in @accounts %>
+					<%= partial "partials/account_list/account", :locals => { :account => account } %>	
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-4">
+		<%= partial 'partials/account_list/new_account' %>
+	</div>
+</div>

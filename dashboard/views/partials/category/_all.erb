@@ -1,0 +1,22 @@
+<div class="block full">
+	<div class="block-title">
+		<h2><i class="fa fa-compass"></i> File Categories</strong></h2>
+	</div>
+	<ul class="nav nav-pills nav-stacked nav-icons media-filter">
+		<% if @categories != nil %>
+			<% for category in @categories %>
+					<% if category.id == @selected %>
+						<li class="active">
+					<% else %>
+						<li class="">
+					<% end %>
+						<a href="<%= url :category,:category, category_id: category.id %>" data-category="<%= category.id %>">
+						<i class="fa fa-fw fa-folder-open themed-color-dark icon-push"></i> <strong><%= category.name %></strong>
+						</a>
+					</li>														
+			<% end %>	
+
+		<% end %>
+
+	</ul>
+</div>

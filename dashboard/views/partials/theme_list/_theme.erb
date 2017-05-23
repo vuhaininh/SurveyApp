@@ -1,0 +1,30 @@
+<tr>
+  <td>
+    <i class="fa fa-2x fa-picture-o"></i>
+  </td>
+  <td class="theme_id"><%= theme.id %></td>
+  <td class="theme-name" data-theme-name='<%= theme.name %>'><%= theme.name %></td>
+  <td class="theme-type" data-theme-type='<%= theme.theme_type_id %>'><%= theme.theme_type_description(@language) %></td>
+  <td><%= theme.assigned_users.count %></td>
+  <td><%= theme.no_of_surveys %></td>
+  <td class="theme-status" data-theme-status='<%= theme.active %>'>
+    <% if theme.active%>
+        <label class="label label-success">Enable</label>
+    <% else %>
+        <label class="label label-warning">Disable</label>
+    <% end %>
+  </td>
+  <td>
+    <div class="btn-group btn-group-xs">
+      <button href="" class="btn btn-default btn-edit">
+        <i class="fa fa-pencil"></i>
+      </button>
+      <button class="btn btn-default btn-delete">
+        <i class="fa fa-times"></i>
+      </button>
+      <a href="<%= url( :theme_list, :assign_user, id: theme.id) %>" class="btn btn-danger">
+        <i class="fa fa-user"></i>
+      </a>
+    </div>
+  </td>
+</tr>

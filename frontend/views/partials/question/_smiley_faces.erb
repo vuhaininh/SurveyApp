@@ -1,0 +1,12 @@
+<div class="question-smiley-faces">
+  <span class="question-faces">
+        <% 1.upto(4) do |ii| %>
+        <div class = "col-xs-3 smiley-block">
+            <label class="smiley-face" for="smiley-face-<%= @question.index %>-<%= ii %>">
+              <input class="smiley-radio" type="radio" id="smiley-face-<%= @question.index %>-<%= ii %>" name="question[<%= @question.index %>]" value="<%= ii %>">
+              <%= image_tag "smiley_faces/"+ii.to_s+".png"%>
+            </label>
+        </div>
+        <% end %>
+  </span>
+</div>

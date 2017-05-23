@@ -1,0 +1,63 @@
+<div class="modal fade" id="edit_assignment_dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Edit User assignment</h4>
+      </div>
+      <div class="modal-body">
+        <% form_tag url(:theme_list, :edit_assign_user), method: "post", id: "edit-account-form", class: "form-horizontal form-bordered" do %>
+            <div class="form-group">
+              <input type="hidden" name="account_theme[theme_id]" value="<%= @theme.id %>"/>
+              <input type="hidden" name="account_theme[account_id]" value="" id="account_id"/>
+
+              <label class="col-lg-4 control-label">Theme Name</label>
+
+              <div class="col-lg-8">
+                <label class="control-label"><%= @theme.name %></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-4 control-label">Theme Type</label>
+
+              <div class="col-lg-8">
+                <label class="control-label"><%= @theme.theme_type_description(@language_code) %></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-4 control-label">Assign to</label>
+
+              <div class="col-lg-8">
+                <label class="control-label" id='assigned_to_users'></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-4 control-label">Activate Date</label>
+
+              <div class="col-lg-8">
+                <input type="text" class="form-control input-datepicker-close" name="account_theme[activate_date]" id='activated_date_input'/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-lg-4 control-label">Expire Date</label>
+
+              <div class="col-lg-8">
+                <input type="text" class="form-control input-datepicker-close" name="account_theme[expire_date]" id="expire_date_input"/>
+              </div>
+            </div>
+            <div class="form-group form-actions">
+              <div class="col-lg-offset-4">
+                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> Save</button>
+                <button type="reset" class="btn btn-sm btn-default" data-dismiss='modal'><i class="fa fa-cancel"></i> Cancel</button>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div><!-- /.modal -->

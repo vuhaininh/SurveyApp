@@ -1,0 +1,152 @@
+$question-color: #268;
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  line-height: 1.5;
+  font-size: 12px;
+  box-sizing: border-box;
+
+  /* Portrait */
+  @media screen and (orientation: portrait){
+    font-size: 1.2em;
+    font-size: 4.5vw;
+  }
+  
+  /* Crappy android - Portrait */
+  @media screen and (min-width: 240px) and (orientation: portrait) {
+    font-size: 1.2em;
+    font-size: 5vw;
+  }
+  
+  /* iPhone 2,3,4,5,6z - Portrait */
+  @media screen and (min-width: 320px) and (orientation: portrait) {
+    font-size: 1.2em;
+    font-size: 4.8vw;
+  }
+
+  /* iphone 6,6+z - Portrait */
+  @media screen and (min-width: 375px) and (orientation: portrait) {
+    font-size: 1.3em;
+    font-size: 4.5vw;
+  }
+  
+  /* iphone 6+ - Portrait */
+  @media screen and (min-width: 414px) and (orientation: portrait) {
+    font-size: 1.4em;
+    font-size: 4.4vw;
+  }
+  
+
+  /* Landscape */
+  @media screen and (orientation: landscape){
+    font-size:2.3vw;
+  }
+  
+  /* Crappy android - Landscape */
+  @media screen and (min-width: 320px) and (orientation: landscape) {
+    font-size: 1.2em;
+    font-size: 3.0vw;
+  }
+
+  /* iphone 2,3,4 - Landscape */
+  @media screen and (min-width: 480px) and (orientation: landscape) {
+    font-size: 2.5vw;
+  }
+  
+  /* iphone 5,6 - Landscape */
+  @media screen and (min-width: 568px) and (orientation: landscape) {
+    font-size: 2.4vw;
+  }
+  
+  /* iphone 6, 6+z - Landscape */
+  @media screen and (min-width: 667px) and (orientation: landscape) {
+    font-size: 2.3vw;
+  }
+
+  /* iphone 6, 6+z - Landscape */
+  @media screen and (min-width: 736px) and (orientation: landscape) {
+    font-size: 2.2vw;
+  }
+
+  @media screen and (min-width: 800px) and (orientation: landscape) {
+    font-size: 2.1vw;
+  }
+
+  @media screen and (min-width: 960px) and (orientation: landscape) {
+    font-size: 1.8vw;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 1.6vw;
+  }
+
+  @media screen and (min-width: 1366px) {
+    font-size: 1.4vw;
+  }
+
+  @media screen and (min-width: 1600px) {
+    font-size: 1.2vw;
+  }
+
+}
+
+html, body, #feedback-form {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  //overflow: hidden;
+}
+
+body {
+  color: $main-color;
+  font-family: $content-font;
+  background-color: $main-bgcolor;
+  #control-bar {
+    .btn-full-screen{
+      width: auto;
+    }
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    opacity: 0.5;
+    color: $question-color;
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+}
+
+main {
+  padding-top: 3rem;
+  //padding-bottom: 4rem;
+
+  height: 100%;
+
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 40rem;
+  height: 100%;
+}
+
+.spinner {
+  position: absolute;
+  top: 0;
+  bottom: 0%;
+  left: 0;
+  right: 0%;
+  background-color: white;
+  z-index: 99;
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding-top: 25px;
+  & img{
+    position: absolute;
+    top: 50%
+  }
+}

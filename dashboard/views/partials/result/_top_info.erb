@@ -1,0 +1,22 @@
+<!-- Mini Top Stats Row -->
+<div class="row">
+    <!-- Dashboard 2 Header -->
+    <div class="content-header">
+        <ul class="nav-horizontal text-center">
+            <li  class="active">
+                <a href="<%= url :survey, :info,survey_index: @survey.index %>"><i class="fa fa-file-text-o"></i> <%= I18n.t('surveyPublishInfo') %></a>
+            </li>
+            <li>
+                <a href="<%= url :survey, :feedbacks, survey_index: @survey.index%>"><i class="fa fa-table"></i> <%= I18n.t('detailAnswer') %></a>
+            </li>
+            <li>
+                <a href="<%= url :survey, :result, survey_index: @survey.index%>"><i class="fa fa-bar-chart-o"></i> <%= I18n.t('summary') %></a>
+            </li>
+
+
+        </ul>
+    </div>
+    <!-- END Dashboard 2 Header -->
+
+</div>
+<!-- END Mini Top Stats Row -->

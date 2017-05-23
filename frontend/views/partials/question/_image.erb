@@ -1,0 +1,38 @@
+<div class="question-choices" data-choices="<%= @question.options.count %>">
+  <% if @question.actual.multiple_selection %>
+      <% @question.options.each do |option| %>
+        <span class="question-choice question-image">
+          <input class="input-checkbox" id="choice-<%= @question.index %>-<%= option.optionText %>" type="checkbox" name="question[<%= @question.index %>][]" value="<%= option.optionText %>"/>
+            <label for="choice-<%= @question.index %>-<%= option.optionText %>">
+              <div>
+                <img src="<%= option.image ? option.image.url : '' %>"/>
+              </div>
+              <div>
+                <%= option.optionText %>
+              </div>
+            </label>
+        </span>
+      <% end %>
+  <% else %>
+      <% @question.options.each do |option| %>
+        <span class="question-choice question-image">
+          <input class="input-radio" id="choice-<%= @question.index %>-<%= option.optionText %>" type="radio" name="question[<%= @question.index %>]" value="<%= option.optionText %>">
+            <label for="choice-<%= @question.index %>-<%= option.optionText %>">
+              <div>
+                <img src="<%= option.image ? option.image.url : '' %>"/>
+              </div>
+              <div>
+                <%= option.optionText %>
+              </div>
+            </label>
+        </span>
+      <% end %>
+  <% end %>
+</div>
+<% if @question.actual.multiple_selection %>
+    <div class="question-message">
+      <div class="message-action clearfix">
+        <button type="button" class="btn btn-primary js-next">Next</button>
+      </div>
+    </div>
+<% end %>

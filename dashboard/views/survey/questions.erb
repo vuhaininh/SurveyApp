@@ -1,0 +1,77 @@
+<!-- Widgets Row -->
+<script type="text/javascript">
+    window.surveyId = <%= @survey.index %>;
+</script>
+
+<div class="row">
+  <div class="block">
+    <div class="block-title">
+      <h2><strong><%= I18n.t('survey.createQuestionForSurvey') %>:  <%= @survey.name %></strong></h2>
+    </div>
+    <%= partial "partials/survey_list/top_nav_step2" %>
+
+    <div ng-app="SurveyApp" ng-controller="QuestionListController">
+      <script type="text/ng-template" id="deleteQuestionModal.html">
+        <div class="modal-header">
+          <h3 class="modal-title"><%= I18n.t('pleaseConfirm') %>?</h3>
+        </div>
+        <div class="modal-body">
+          <p><%= I18n.t('areYouSure') %></p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary btn-danger" ng-Click="ok()"><%= I18n.t('ok') %></button>
+          <button class="btn btn-default" data-dismiss="modal" ng-Click="cancel()"><%= I18n.t('cancel') %></button>
+        </div>
+      </script>
+      <div class="form-group">
+        <a href="<%= url :survey, :edit, survey_index: @survey.index %>"><span class="btn btn-sm btn-primary ui-wizard-content ui-formwizard-button btn-warning"><%= I18n.t('back') %></span></a>
+        <% if @survey.questions.count == 0 %>
+            <a href="<%= url :survey, :publish, survey_index: @survey.index %>" disabled="disabled"><span class="btn btn-sm btn-primary ui-wizard-content ui-formwizard-button" disabled="disabled"><%= I18n.t('publish') %></span></a>
+        <% else %>
+            <a href="<%= url :survey, :publish, survey_index: @survey.index %>"><span class="btn btn-sm btn-primary ui-wizard-content ui-formwizard-button"><%= I18n.t('publish') %></span></a>
+
+        <% end %>
+      </div>
+      <div ng-controller="QuestionCreateController">
+        <script type="text/ng-template" id="editImageModal.html">
+          <div class="modal-header">
+            <h3 class="modal-title">Crop image to display</h3>
+          </div>
+          <div class="modal-body">
+            <div class="text-center">
+              <img ngf-thumbnail="image.file[0]" ngf-accept="image/*" class="crop-image" suvi-jcrop="image.file[0]"/>
+            </div>
+            <div class="text-center">
+                <img src="" class="thumb">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary btn-danger" ng-Click="ok()">OK</button>
+            <button class="btn btn-default" data-dismiss="modal" ng-Click="cancel()">Cancel</button>
+          </div>
+        </script>
+        <%= partial "partials/survey/new_question" %>
+      </div>
+
+      <div ui-sortable="sortableOptions" ng-model="questions">
+        <div ng-repeat="question in questions">
+          <%= partial "partials/survey/edit_question" %>
+        </div>
+      </div>
+      <div class="form-group">
+
+        <a href="<%= url :survey, :edit, survey_index: @survey.index %>"><span class="btn btn-sm btn-primary ui-wizard-content ui-formwizard-button btn-warning"><%= I18n.t('back') %></span></a>
+        <% if @survey.questions.count == 0 %>
+            <a href="<%= url :survey, :publish, survey_index: @survey.index %>" disabled="disabled"><span class="btn btn-sm btn-primary ui-wizard-content ui-formwizard-button" disabled="disabled"><%= I18n.t('publish') %></span></a>
+        <% else %>
+            <a href="<%= url :survey, :publish, survey_index: @survey.index %>"><span class="btn btn-sm btn-primary ui-wizard-content ui-formwizard-button"><%= I18n.t('publish') %></span></a>
+
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- END Widgets Row -->
+

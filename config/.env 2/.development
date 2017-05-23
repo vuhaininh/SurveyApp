@@ -1,0 +1,6 @@
+# .env.development
+
+DB_HOST=localhost
+DB_DATABASE=svipk_development
+DB_USER=admin
+DB_PASSWORD=admin

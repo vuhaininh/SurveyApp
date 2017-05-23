@@ -1,0 +1,30 @@
+<div class="col-sm-6 question question-multi-choice">
+  <!-- Widget -->
+  <div class="widget">
+    <div class="widget-header widget-extra themed-background-dark-default text-right">
+      <h4 class="widget-content-light"># <%= question.index %> </h4>
+    </div>
+    <div class="widget-body">
+      <div class="widget-title"> <%= question.questionText %> </div>
+      <% if question.actual.multiple_selection %>
+          <div class="widget-content widget-extra-full">
+            <canvas class="bar-canvas" width="380" height="240" data-chart="<%= question.result.publish.to_json %>">
+              Your browser don't support canvas
+            </canvas>
+          </div>
+      <% else %>
+          <div class="widget-content widget-extra-full text-center ">
+            <div class="report-options">
+              <div class="pie-container">
+                <canvas class="pie-canvas" width="200" height="200" data-chart="<%= question.result.publish.to_json %>" data-question="<%= question.index %>">
+                  Your browser don't support canvas
+                </canvas>
+              </div>
+              <div class="pie-legend"></div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+  <!-- END Widget -->
+</div>

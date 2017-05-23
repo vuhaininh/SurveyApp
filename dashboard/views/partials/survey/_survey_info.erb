@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="widget">
+      <div class="widget-advanced widget-advanced-alt">
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th></th>
+              <th><%= I18n.t('survey.longUrl') %></th>
+              <th><%= I18n.t('survey.shortUrl') %></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <th><%= I18n.t('survey.url') %></th>
+              <td><a href="<%= @survey.full_url%>"><%= @survey.full_url%></a></td>
+              <td><a href="<%= @survey.short_url%>"><%= @survey.short_url%></a></td>
+            </tr>
+            <tr>
+              <th><%= I18n.t('survey.customUrl') %></th>
+              <td><a href="<%= @survey.full_custom_url%>"><%= @survey.full_custom_url%></a></td>
+              <td><a href="<%= @survey.short_custom_url%>"><%= @survey.short_custom_url%></a></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="widget-main">
+          <div class="list-group remove-margin">
+            <center>
+              <a href="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<%= @survey.full_url %>&choe=UTF-8&chld=H" download="<%= @survey.name %>.png" title="ImageName" class="btn btn-info">
+                <%= I18n.t('survey.downloadQr') %>
+              </a>
+
+            </center>
+          </div>
+        </div>
+        <div class="widget-header text-center themed-background-dark">
+          <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<%= @survey.full_url %>&choe=UTF-8&chld=H">
+          <h4 class="widget-content-light">
+            <strong><%= @survey.survey_translations.first.description %></strong>
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>

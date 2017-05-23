@@ -1,0 +1,28 @@
+<!-- Files Block -->
+<div class="block">
+  <!-- Files Content -->
+  <!-- Add the category value for each item in its data-category attribute (for the filter functionality to work) -->
+  <div class="row media-filter-items">
+
+    <% if !@uploads.blank? %>
+        <% for upload in @uploads %>
+            <div class="col-md-4">
+              <!-- Advanced Static Image Widget Alternative -->
+              <div class="widget">
+                <div class="widget-advanced widget-advanced-alt">
+                  <!-- Widget Header -->
+                  <div class="widget-header text-left">
+                    <!-- For best results use an image with at least 150 pixels in height (with the width relative to how big your widget will be!) - Here I'm using a 1000x150 pixels image -->
+                    <img src="<%= upload.file_url %>" alt="background" class="widget-background">
+
+                  </div>
+                  <!-- END Widget Header -->
+                </div>
+              </div>
+              <!-- END Advanced Static Image Widget Alternative -->
+            </div>
+        <% end %>
+    <% end %>
+  </div>
+</div>
+<!-- END Files Content -->

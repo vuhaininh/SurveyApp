@@ -1,0 +1,22 @@
+<%= partial 'partials/result/top' %>
+<!-- Widgets Row -->
+<div class="row js-masonry"  data-masonry-options='{"itemSelector": ".question" }'>
+    <% if !@questions.blank? %>
+		<% for question in @questions %>
+			<% case question.question_type_id
+                when QuestionType::STAR_RATING %>
+					<%= partial 'partials/result/star_rating', :locals => { :question => question } %>
+				<% when QuestionType::MULTIPLE_CHOICES %>
+					<%= partial 'partials/result/multiple_choice', :locals => { :question => question } %>
+				<% when QuestionType::TEXT_INPUT %>
+					<%= partial 'partials/result/text_input', :locals => { :question => question } %>
+				<% when QuestionType::SMILE_FACE %>
+					<%= partial 'partials/result/smiley_faces', :locals => { :question => question } %>
+                 <% when QuestionType::IMAGE %>
+                    <%= partial 'partials/result/image', :locals => { :question => question } %>
+			<% end %>
+		<% end %>
+	<% end %>
+</div>
+<!-- END Widgets Row -->
+

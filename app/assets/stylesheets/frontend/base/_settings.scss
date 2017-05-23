@@ -1,0 +1,19 @@
+$gutter: 1.5rem;
+$grid: 2.5 * $gutter;
+
+$main-color: #fff;
+$main-subcolor: #777;
+
+$main-bgcolor: #fff;
+
+$ui-font: 'Helvetica','Roboto', 'Open Sans', 'Verdana', Tahoma, san-serif;
+$content-font: 'Helvetica','Roboto', 'Open Sans', 'Verdana', Tahoma, san-serif;
+
+$screen-xs-max: 768px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+
+.widget .widget-content-light {
+    color: #000;
+}

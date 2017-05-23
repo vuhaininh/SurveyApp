@@ -1,0 +1,15 @@
+<div class="col-md-12">
+  <!-- Survey group Widget -->
+  <h3 class="sub-header"><strong><%= I18n.t('activeSurveys') %></strong></h3>
+
+  <div class="row">
+    <% if !@active_surveys.blank? %>
+        <% for survey in @active_surveys %>
+            <%= partial 'cards/survey', :locals => {:survey => survey, :theme => 'themed-background'} %>
+        <% end %>
+    <% end %>
+  </div>
+
+
+</div>
+								

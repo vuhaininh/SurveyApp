@@ -1,0 +1,13 @@
+{
+  "ok": "Đồng ý",
+  "cancel": "Huỷ bỏ",
+  "removeSurveyMessage": "Thăm dò sẽ bị xoá, bạn có muốn tiếp tục?",
+  "resetSurveyMessage": "Tất cả các câu trả lời của thăm dò này sẽ bị xoá, bạn có muốn tiếp tục?",
+  "closeSurveyMessage": "Thăm dò sẽ bị đóng, bạn sẽ không nhận thêm được bất kỳ phản hồi nào, bạn có muốn tiếp tục?",
+  "reactiveSurveyMessage": "Thăm dò đang được mở lại, bạn có muốn tiếp tục?",
+  "updateQuestionSuccess": "Câu hỏi được cập nhật thành công!",
+  "starRating": "Câu hỏi đánh giá",
+  "multipleChoices": "Câu hỏi lựa chọn",
+  "questionDeleted": "Câu hỏi đã được xoá",
+  "textInputQuestion": "Câu hỏi nhập văn bản"
+}

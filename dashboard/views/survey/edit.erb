@@ -1,0 +1,94 @@
+<!-- Widgets Row -->
+
+<div class="row">
+	<div class="block">
+		<div class="block-title">
+			<h2><%= I18n.t('survey.editSurvey') %> <strong><%= @survey.name %></strong> </h2>
+		</div>
+		<% form_tag url( :survey, :edit,survey_index:@survey.index), method: "post", id: "edit-survey-form",class: "form-horizontal form-bordered ui-formwizard" do %>
+			<div id="create-survey-form" class="step ui-formwizard-content" style="display: block;">
+				<div ng-app="SurveyApp" ng-controller = "SurveyEditController">
+					<%= partial "partials/survey_list/top_nav_step1" %>
+					<div class = "col-sm-8">
+                      <input type="hidden" id="survey_index" ng-model="survey_index" value="<%= @survey.index %>"/>
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="edit_survey_name"><%= I18n.t('survey.surveyName') %></label>
+							<div class="col-md-6">
+								<input type="text" id="survey_name" ng-model="edit_survey_name" name="survey[name]" class="form-control ui-wizard-content" value = "<%= @survey.name%>">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="edit_survey_description"> <%= I18n.t('survey.surveyDescription') %></label>
+							<div class="col-md-6">
+								<textarea  id="survey_description" rows="3" ng-model="edit_survey_description" name="survey[description]" class="form-control ui-wizard-content"><%= @survey.survey_translations.first.description%></textarea>
+							</div>
+						</div>
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="survey_custom_url"><%= I18n.t('survey.customURL') %></label>
+                        <div class="col-md-6">
+                          <span><%= request.scheme + '://' + request.host_with_port + '/' %></span><span ng-bind="survey_custom_url"></span>
+                          <input  id="survey_custom_url" rows="3" ng-model="survey_custom_url" name="survey[custom_url]" class="form-control ui-wizard-content" placeholder="<%= I18n.t('survey.inputCustomUrl') %>.." value="<%= @survey[:custom_url] %>"/>
+                          <div>
+                            <button class="btn btn-default btn-sm" type="button" ng-click="checkCustomUrlAvailability()"><%= I18n.t('survey.checkAvailability') %></button>
+                            <span><i class="fa fa-check-circle text-success" ng-show="isCustomUrlAvailable === true"></i><i class="fa fa-times-circle text-danger" ng-show="isCustomUrlAvailable === false"></i></span>
+                          </div>
+                        </div>
+                      </div>
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="new_survey_theme"> <%= I18n.t('survey.surveyTheme') %></label>
+							<div class="col-md-6">
+								<select id="new_survey_theme" name="survey[theme]" class="select-select2" style="width: 100%;" data-placeholder="Choose one..">
+									<option></option><!-- Required for data-placeholder attribute to work with Select2 plugin -->
+									<% for theme in @themes %>
+										<% if theme == @survey.theme %>
+											<option value="<%= theme.id %>" selected><%= theme.name %> </option>	
+										<% else %>
+											<option value="<%= theme.id %>"><%= theme.name %> </option>	
+										<% end %>
+									<% end %>							
+								</select>	
+							</div>
+						</div>
+                      <div id="survey_settings">
+                        <div class="form-group">
+                          <label class="col-md-4 control-label"><%= I18n.t('survey.autoSubmit') %></label>
+
+                          <div class="col-md-6">
+                            <label class="switch switch-primary"><input type="checkbox" id="autoRepeat" class="form-control" ng-model="autoRepeat" value=<%= @survey.auto_reset ? 'true' : 'false' %> name=survey[autoRepeat] <%= @survey.auto_reset ? 'checked=checked': '' %> /><span></span></label>
+                          </div>
+                        </div>
+                        <div class="form-group" ng-show="autoRepeat">
+                          <label class="col-md-4 control-label"><%= I18n.t('survey.autoSubmitAfter') %></label>
+                          <div class="col-md-6">
+                            <input type="number" id="autoRepeatInterval" class="form-control" ng-model="autoRepeatInterval" name="survey[autoRepeatInterval]" value="<%= @survey.auto_reset_interval %>">
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="col-md-4 control-label"><%= I18n.t('survey.redirectURLAfterFinish') %></label>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control" name="survey[redirectUrl]" value="<%= @survey.redirect_url %>">
+                          </div>
+                        </div>
+                        <div class="form-group" style="display: none">
+                          <label class="col-md-4 control-label">Full screen on open</label>
+
+                          <div class="col-md-6">
+                            <label class="switch switch-primary"><input type="checkbox" checked class="form-control" ng-model="fullScreenOnOpen" name=survey[fullScreenOnOpen]><span></span></label>
+                          </div>
+                        </div>
+                      </div>
+					</div><br>
+					<%= partial "partials/survey_list/edit_survey_preview" %>
+				</div>
+			</div>
+			<div class="form-group form-actions">
+				<div class="col-md-8 col-md-offset-4">
+					<button type="submit" class="btn btn-sm btn-primary ui-wizard-content ui-formwizard-button" id="survey_submit" value="Submit"><%= I18n.t('update') %></button>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+<!-- END Widgets Row -->
+

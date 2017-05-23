@@ -1,0 +1,6 @@
+# .env.production
+
+DB_HOST=ec2-54-217-239-20.eu-west-1.compute.amazonaws.com
+DB_DATABASE=df1eb7r00op79m
+DB_USER=likafqsldghkvf
+DB_PASSWORD=Mq1G7WQYBr6Elmb3tp3ek_1Lbg

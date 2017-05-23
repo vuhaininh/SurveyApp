@@ -1,0 +1,71 @@
+<div class="col-sm-6 col-lg-3">
+  <div class="widget widget-hover-effect1 clickable" data-toggle="link" data-link="<%= url :survey, :index, survey_index: survey.index %>">
+    <div class="widget-simple <%= theme%>">
+      <div>
+        <form action="<%= url :survey, :delete, survey_index: survey.index %>" class="delete-form">
+        </form>
+        <button type="submit" class="btn btn-xs pull-right btn btn-alt btn-sm survey-delete" data-toggle="tooltip" title="" data-original-title="<%= I18n.t('delete') %>">
+          <i class="fa fa-times"></i></button>
+      </div>
+      <div class="text-center">
+        <h4 class="widget-content widget-content-light">
+          <strong><%= survey.name %></strong>
+              <% if survey.description != nil %>
+                  <% if survey.description.length >= 30 %>
+                      <% des = survey.description[0..29] + "..." %>
+                  <% else %>
+                      <% des = survey.description %>
+                  <% end %>
+              <% end %>
+          <small data-toggle="tooltip" title="" data-original-title="<%= survey.description %>"><%= des.nil? ? survey.description : des %></small>
+        </h4>
+        </div>
+      </div>
+      <div class="widget-extra">
+        <div class="row text-center">
+          <div class="col-xs-4">
+            <h3>
+              <strong><%= survey.questions.count %></strong><br>
+              <small><%= I18n.t('questions') %></small>
+            </h3>
+          </div>
+          <div class="col-xs-4">
+            <h3>
+              <strong><%= survey.feedbacks.count %></strong><br>
+              <small><%= I18n.t('answer') %></small>
+            </h3>
+          </div>
+          <div class="col-xs-4">
+            <h3>
+              <strong><%= survey.view_count %></strong><br>
+              <small><%= I18n.t('views') %></small>
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <a href="<%= url :survey, :clone, survey_index: survey.index %>" class="pull-right btn btn-alt" data-toggle="tooltip" title="" data-original-title="<%= I18n.t('clone') %>">
+            <i class="fa fa-files-o"></i>
+          </a>
+          <% if survey.feedbacks.count == 0 %>
+              <a href="<%= url :survey, :edit, survey_index: survey.index %>" class="btn  pull-right btn-alt" data-toggle="tooltip" title="" data-original-title="<%= I18n.t('edit') %>">
+                  <i class="fa fa-pencil"></i></a>
+          <% end %>
+          <div>
+            <form action="<%= url :survey, :start_over, survey_index: survey.index %>" class="reset-form">
+            </form>
+            <a class="btn  pull-right btn-alt survey-reset" data-toggle="tooltip" title="" data-original-title="<%= I18n.t('reset') %>">
+              <i class="gi gi-restart"></i></a>
+          </div>
+          <div>
+            <form action="<%= url :survey, :stop, survey_index: survey.index %>" class="stop-form">
+            </form>
+            <a class="btn pull-right btn-alt survey-stop" data-toggle="tooltip" title="" data-original-title="<%= I18n.t('complete') %>">
+              <i class="gi gi-lock"></i></a>
+          </div>
+
+
+        </div>
+      </div>
+  </div>
+</div>
+							                            

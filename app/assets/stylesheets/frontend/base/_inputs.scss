@@ -1,0 +1,36 @@
+.form-input {
+  width: 100%;
+
+  border-style: solid;
+  border-width: 3px 2px 2px;
+  border-color: #ccc;
+  border-radius: 4px;
+  background: #eee;
+  font-size: 1em;
+
+  color: $main-color;
+  font-family: $content-font;
+
+  padding: .5em;
+  line-height: 1.5;
+  outline: none;
+
+  &:hover, &:focus, &.active {
+    background: #fff;
+    border-color: $primary;
+  }
+
+  &.error {
+    border-color: $important;
+  }
+
+}
+
+input:-webkit-autofill {
+  background-color: #fff !important;
+}
+
+textarea.form-input {
+  resize: vertical;
+  height: 6em;
+}

@@ -1,0 +1,44 @@
+.feedback-container{
+  height: auto;
+  overflow: hidden;
+  padding: 8% 0 0 0;
+  padding:8vh 0 0 0;
+    
+  @media screen and (orientation: portrait) {
+    width: 100%;
+  }
+  @media screen and (orientation: landscape) {
+    width: 100%;
+  }
+}
+
+.pages {
+  width: 100%;
+  height: 100%;
+  min-height: 17rem;
+  @include clearfix();
+}
+
+.page {
+  font-size: 1rem;
+  text-align: center;
+  overflow-y: visible;
+  background-color: transparent;
+  &.resize{
+    padding: 1px;
+  }
+  &.inactive{
+    display: none;
+  }
+}
+
+.description-content {
+  max-width: 25em;
+  margin: 0 auto;
+  color: #999;
+  font-size: 1.2rem;
+}
+
+@import 'pages/_question.scss';
+@import 'clock/_clock.scss';
+@import 'pages/_intro.scss';

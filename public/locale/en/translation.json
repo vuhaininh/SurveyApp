@@ -1,0 +1,13 @@
+{
+  "ok": "Ok",
+  "cancel": "Cancel",
+  "removeSurveyMessage": "This will remove the survey, do you want to continue?",
+  "resetSurveyMessage": "This will remove all the answers, do you want to continue?",
+  "closeSurveyMessage": "This will stop the survey and you cannot receive more feedback, do you want to continue?",
+  "reactiveSurveyMessage": "This will re-active the survey, do you want to continue?",
+  "updateQuestionSuccess": "Updated question successfully!",
+  "starRating": "Star Rating",
+  "multipleChoices": "Multiple choices questions",
+  "questionDeleted": "Question deleted",
+  "textInputQuestion": "Text input question"
+}

@@ -1,0 +1,27 @@
+<tr data-user-id= <%= account_theme.account.id %>>
+  <td>
+    <i class="fa fa-2x fa-picture-o"></i>
+  </td>
+  <td><%= account_theme.account.first_name + ' ' + account_theme.account.last_name %></td>
+  <td class="activated-date">
+    <% if account_theme.activate_date  %>
+    <%= account_theme.activate_date.strftime('%d/%m/%Y')%>
+    <% end %>
+  </td>
+  <td class="expire-date">
+    <% if account_theme.expire_date  %>
+    <%= account_theme.expire_date.strftime('%d/%m/%Y')%>
+        <% end %>
+  </td>
+  <td><%= account_theme.account.find_survey_by_theme(@theme.id).count %></td>
+  <td>
+    <div class="btn-group btn-group-xs">
+      <button class="btn btn-default btn-edit">
+        <i class="fa fa-pencil"></i>
+      </button>
+      <button class="btn btn-danger btn-delete">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </td>
+</tr>

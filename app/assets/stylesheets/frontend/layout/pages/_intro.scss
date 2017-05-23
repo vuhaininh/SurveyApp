@@ -1,0 +1,66 @@
+.intro-message {
+  padding-top: $gutter/4;
+  color: $important;
+  &:empty {
+    display: none;
+  }
+}
+
+.intro-title {
+  position: absolute;
+  width: 100%;
+  top: 10%;
+  left: 0;
+  padding: 0 $gutter;
+  font-weight: bold;
+}
+
+.survey-title {
+  font-family: $content-font;
+
+  color: $primary-dark;
+  font-size: 1.7rem;
+  line-height: 2rem;
+
+}
+
+.intro-description {
+  position: absolute;
+  width: 100%;
+  padding: 0 $gutter;
+  top: 25%;
+  left: 0;
+}
+
+.survey-question {
+  font-weight: bold;
+  color: #777;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  font-family: $ui-font;
+}
+
+.survey-description {
+  max-width: 25em;
+  margin: 0 auto;
+  color: #777;
+  font-size: 1.2rem;
+  height: 4.5em;
+  overflow: hidden;
+}
+
+.intro-footer {
+  position: absolute;
+  width: 100%;
+  padding: 0 $gutter;
+  top: 65%;
+  left: 0;
+  font-size: 1.3rem;
+  .btn {
+    margin: $gutter/2;
+  }
+
+  @media screen and (orientation: landscape) {
+    top: 70%;
+  }
+}

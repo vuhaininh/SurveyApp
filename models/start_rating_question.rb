@@ -1,0 +1,1 @@
+class StarRatingQuestion < Question;end

@@ -1,0 +1,25 @@
+<div class="block">
+  <div class="block-title">
+    <h2><i class="fa fa-plus"></i> Add New Theme</h2>
+  </div>
+  <% form_tag url(:theme_list, :new_theme), method: "post", id: "create-theme-form", class: "form-horizontal form-bordered" do %>
+      <div class="form-group">
+        <label class="col-xs-4 control-label" for="add-name">Theme Name</label>
+
+        <div class="col-xs-8">
+          <input type="text" id="add-name" name="theme[name]" class="form-control" placeholder="Enter Theme Name..">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-4 control-label" for="add-type">Theme Type</label>
+        <div class="col-xs-8">
+          <%= select_tag("theme[type]", :collection => @theme_types, :fields => [:last, :first], :id=>"add-type", :class=>"form-control")%>
+        </div>
+      </div>
+      <div class="form-group form-actions">
+        <div class="col-xs-9 col-xs-offset-3">
+          <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Create Theme</button>
+        </div>
+      </div>
+  <% end %>
+</div>

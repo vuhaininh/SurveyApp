@@ -1,0 +1,20 @@
+$header-bgcolor: #000000 !default;
+.global-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $header-bgcolor;
+  z-index: 999;
+  font-size: 1.5em;
+  height: 2.65rem;
+}
+
+.title-bar {
+    padding: 5px 0px 0px 0px;
+}
+
+
+@import 'header/_brand.scss';
+@import 'header/_title.scss';
+@import 'header/_nav.scss';

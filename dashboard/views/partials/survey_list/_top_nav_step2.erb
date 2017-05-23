@@ -1,0 +1,18 @@
+<div class="wizard-steps">
+	<div class="row">
+		<div class="col-xs-4">
+			<a href="<%= url :survey, :edit, survey_index: @survey.index %>"><span>1. <%= I18n.t('title') %></span></a>
+		</div>
+		<div class="col-xs-4 active">
+			<span>2. <%= I18n.t('questions') %></span>
+		</div>
+		<div class="col-xs-4">
+			<% if @survey.questions.count == 0 %>
+				<span>3. <%= I18n.t('publish') %></span>
+			<% else %>
+				<a href="<%= url :survey, :publish,survey_index: @survey.index %>"><span>3. <%= I18n.t('publish') %></span></a>
+			<% end %>
+			
+		</div>
+	</div>
+</div>

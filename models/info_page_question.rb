@@ -1,0 +1,3 @@
+class InfoPageQuestion < Question
+
+end

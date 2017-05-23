@@ -1,0 +1,39 @@
+<div class="col-sm-6 question question-text-input">
+  <!-- Widget -->
+  <div class="widget">
+    <div class="widget-header widget-extra themed-background-dark-default text-right">
+      <h4 class="widget-content-light"># <%= question.index %> </h4>
+    </div>
+    <div class="widget-body">
+      <div class="widget-title"> <%= question.questionText %> </div>
+      <div class="widget-content widget-extra">
+        <!-- Timeline Content -->
+        <div class="timeline">
+          <ul class="timeline-list">
+            <% if !question.result.blank? %>
+                <% for message in question.result.publish %>
+                    <li class="active">
+                      <div class="timeline-icon"><i class="gi gi-alarm"></i></div>
+                      <div class="timeline-time">
+                        <small><%= Time.relative_time(message.created_at) %></small>
+                      </div>
+                      <div class="timeline-content">
+                        <p class="push-bit"><strong># <%= message.index %></strong></p>
+                        <%= message.content %>
+                      </div>
+                    </li>
+                <% end %>
+            <% else %>
+                <div class="alert alert-info alert-dismissable">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h4><i class="fa fa-info-circle"></i> Notice</h4> There is no answer for this question
+                </div>
+            <% end %>
+          </ul>
+        </div>
+        <!-- END Timeline Content -->
+      </div>
+    </div>
+  </div>
+  <!-- END Widget -->
+</div>

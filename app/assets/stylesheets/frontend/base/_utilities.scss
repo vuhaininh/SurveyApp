@@ -1,0 +1,22 @@
+.clearfix {
+  @include clearfix();
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+
+.hide-text {
+  @media screen and (orientation: portrait) {
+    .text {
+      display: none;
+    }
+  }
+}
+
+@mixin calc($property, $expression) {
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}

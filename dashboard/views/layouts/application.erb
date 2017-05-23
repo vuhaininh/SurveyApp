@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Survey in Pocket</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="author" content="Survey in Pocket">
+  <meta name="contact" content="info@surveyinpocket.com">
+  <meta name="copyright" content="&copy; 2014 surveyinpocket.com">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <%= stylesheet_link_tag '/assets/application' %>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="http://cdn.jsdelivr.net/g/jquery.ui@1.10%28jquery.ui.core.min.js+jquery.ui.widget.min.js+jquery.ui.mouse.min.js+jquery.ui.sortable.min.js%29"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-sanitize.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js"></script>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="spinner">
+  <%= image_tag "loader.gif"%>
+  Loading...
+</div>
+
+<div id="page-wrapper">
+  <div id="page-container" class="sidebar-partial sidebar-visible-lg sidebar-no-animations">
+    <!-- Main Sidebar -->
+    <%= partial 'partials/header/sidebar' %>
+    <!-- END Main Sidebar -->
+    <!-- Main Container -->
+    <div id="main-container">
+      <!-- Main Header -->
+      <%= partial 'partials/header/header' %>
+      <!-- END Header -->
+
+
+      <!-- Page content -->
+      <div id="page-content">
+        <% if flash %>
+            <div class="row">
+              <div class="col-xs-12">
+                <% if flash[:success] %>
+                    <!-- Success Alert Block -->
+                    <!-- Success Alert Content -->
+                    <div class="alert alert-success alert-dismissable">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <h4><%= flash[:success] %></h4>
+                    </div>
+                    <!-- END Success Alert Content -->
+                <% end %>
+                <% if flash[:error] %>
+                    <!-- Danger Alert Content -->
+                    <div class="alert alert-danger alert-dismissable">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <% if flash[:error].kind_of?(String) %>
+                          <h4><%= flash[:error] %></h4>
+                      <% else %>
+                          <% for error in flash[:error] %>
+                              <h4><%= error[1].join('\n') %></h4>
+                          <% end %>
+                      <% end %>
+                    </div>
+                <% end %>
+              </div>
+            </div>
+        <% end %>
+        <%= yield %>
+      </div>
+      <!-- END Page Content -->
+      <!-- Footer -->
+      <%= partial 'partials/footer/footer' %>
+      <!-- END Footer -->
+
+    </div>
+    <!-- END Main Container -->
+  </div>
+  <!-- END Page Container -->
+</div>
+<!-- END Page Wrapper -->
+<%= javascript_include_tag '/assets/application.js' %>
+</body>
+</html>

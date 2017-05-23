@@ -1,0 +1,18 @@
+<header class="global-header">
+  <div class="container-fluid clearfix title-bar">
+	<div class = "col-xs-4 logo-container">
+		<!--<%= image_tag "text_logo.png", :class => "brand-logo pull-left"%>-->
+	</div>	
+    <nav class="header-nav col-xs-8">
+      <div class="header-link active survey-name">
+        <%= @survey.name %>
+      </div>
+	          
+        <strong><span class="text question-order" id="order">1/10</span></strong>
+    </nav>
+  </div>
+
+</header>
+<div class="feedback-progress clearfix">
+  <div class="svipk-progress pull-left"></div>
+</div>

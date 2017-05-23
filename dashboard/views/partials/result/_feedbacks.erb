@@ -1,0 +1,31 @@
+<div class="table-responsive">
+  <table class="table table-vcenter table-striped">
+    <thead>
+    <tr>
+      <th><%= I18n.t('gatheredDate') %></th>
+      <% for question in @survey.questions %>
+          <% if question.question_type_id != 6 %>
+              <th><%= question.questionText %></th>
+          <% end %>
+      <% end %>
+    </tr>
+    </thead>
+    <tbody>
+
+    <% if !@feedbacks.blank? %>
+        <% for @feedback in @feedbacks %>
+
+            <tr>
+              <td class="text-center"><%= @feedback.created_at.strftime('%d/%m/%Y') %></td>
+              <% for answer in @feedback.parsed_answers %>
+                  <td class="text-center"><%= answer %></td>
+              <% end %>
+            </tr>
+        <% end %>
+    <% else %>
+        No feedback.
+    <% end %>
+
+    </tbody>
+  </table>
+</div>

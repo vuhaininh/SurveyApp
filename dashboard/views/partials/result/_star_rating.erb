@@ -1,0 +1,17 @@
+<div class="col-sm-6 question">
+  <!-- Widget -->
+  <div class="widget">
+    <div class="widget-header widget-extra themed-background-dark-default text-right">
+      <h4 class="widget-content-light"># <%= question.index %> </h4>
+    </div>
+    <div class="widget-body">
+      <div class="widget-title"> <%= question.questionText %> </div>
+      <div class="widget-content widget-extra-full">
+        <canvas class="bar-canvas" width="380" height="240" data-chart="<%= question.result.publish.to_json %>">
+          Your browser don't support canvas
+        </canvas>
+      </div>
+    </div>
+  </div>
+  <!-- END Widget -->
+</div>

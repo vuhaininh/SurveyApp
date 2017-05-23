@@ -1,0 +1,70 @@
+<div class="block" ng-controller="QuestionEditController">
+
+  <div class="block-title ui-sortable-handle">
+    <div class="block-options pull-right">
+      <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-primary" data-toggle="block-toggle-content"><i class="fa fa-arrows-v"></i></a>
+      <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-primary" data-toggle="block-toggle-fullscreen"><i class="fa fa-desktop"></i></a>
+      <a class="btn btn-alt btn-sm btn-danger" data-toggle="tooltip" title="" data-original-title="Delete" ng-click="delete(question)"><i class="fa fa-times"></i></a>
+    </div>
+    <i class="fa fa-spinner fa-spin fa-2x" ng-show="question.ordering"></i><h2><%= I18n.t('question') %><strong># {{$index + 1}}</strong></h2>
+  </div>
+  <div class="block-content">
+    <form class="form-horizontal form-bordered ui-formwizard ng-pristine ng-valid ng-valid-maxlength">
+      <div id="edit-question-form{{index}}" class="step ui-formwizard-content" style="display: block;">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="question_type"><%= I18n.t('survey.questionType') %></label>
+
+            <div class="col-md-6">
+              <select ng-model="question.questionTypeId" ng-options="option.id as option.description for option in QUESTION_OPTIONS" class="form-control">
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group" ng-if="question.questionTypeId == QUESTION_TYPES.INFO">
+            <label class="col-md-4 control-label" for="edit_question_name"><%= I18n.t('question') %></label>
+
+            <div class="col-md-6">
+              <textarea ng-model="question.questionText" class="form-control" rows="5">{{question.questionText}}</textarea>
+            </div>
+          </div>
+
+          <div class="form-group" ng-if="question.questionTypeId != QUESTION_TYPES.INFO">
+            <label class="col-md-4 control-label" for="edit_question_name"><%= I18n.t('question') %></label>
+
+            <div class="col-md-6">
+              <input type="text" id="edit_question_name{{$index}}" ng-model="question.questionText" name="question[name]" class="form-control ui-wizard-content question_name" maxlength="75">
+            </div>
+          </div>
+
+          <fieldset ng-show="question.questionTypeId == QUESTION_TYPES.MULTIPLE_CHOICES">
+            <div class="form-group">
+              <label class="col-md-4 control-label"><%= I18n.t('survey.questionChoice') %>  <br> <%= I18n.t('survey.pressTab') %> </label>
+
+              <div class="col-md-6">
+                <input type="text" name="question[multiple_choice]" class="form-control input-tags" suvi-input-tag ng-model="question.options">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-4 control-label"><%= I18n.t('survey.multipleSelection') %>?</label>
+
+              <div class="col-md-6">
+                <label class="switch switch-primary">
+                  <input type="checkbox" id="multiple_selection" name="question[multiple_selection]" class="form-control" ng-model="question.multipleSelection">
+                  <span></span>
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+      </div>
+      <div class="form-group form-actions">
+        <div class="col-md-8 col-md-offset-4">
+          <button type="button" class="btn btn-sm btn-success ui-wizard-content ui-formwizard-button" id="question_submit" ng-click="updateQuestion()"><%= I18n.t('survey.updateQuestion') %>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

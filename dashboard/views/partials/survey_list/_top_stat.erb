@@ -1,0 +1,65 @@
+                        <!-- Mini Top Stats Row -->
+                        <div class="row">
+                            <div class="col-sm-6 col-lg-3">
+                                <!-- Widget -->
+                                <a href="<%= url :survey_list, :index %>" class="widget widget-hover-effect1">
+                                    <div class="widget-simple">
+                                        <div class="widget-icon pull-left themed-background-spring">
+                                            <i class="fa fa-file-text"></i>
+                                        </div>
+                                        <h3 class="widget-content text-right">
+												<strong><%= I18n.t('all') %></strong><br>
+                                           
+                                        </h3>
+                                    </div>
+                                </a>
+                                <!-- END Widget -->
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <!-- Widget -->
+                                <a href="<%= url :survey_list, :active %>" class="widget widget-hover-effect1">
+                                    <div class="widget-simple">
+                                        <div class="widget-icon pull-left themed-background">
+                                            <i class="hi hi-play"></i>
+                                        </div>
+                                        <h3 class="widget-content text-right">
+                                             <strong><%= I18n.t('active') %></strong>
+											 
+                                            
+                                        </h3>
+                                    </div>
+                                </a>
+                                <!-- END Widget -->
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <!-- Widget -->
+                                <a href="<%= url :survey_list, :draft %>" class="widget widget-hover-effect1">
+                                    <div class="widget-simple">
+                                        <div class="widget-icon pull-left themed-background-amethyst">
+                                            <i class="gi gi-pencil"></i>
+                                        </div>
+                                        <h3 class="widget-content text-right">
+                                            <strong><%= I18n.t('draft') %></strong>
+                                            
+                                        </h3>
+                                    </div>
+                                </a>
+                                <!-- END Widget -->
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <!-- Widget -->
+                                <a href="<%= url :survey_list, :finished %>" class="widget widget-hover-effect1">
+                                    <div class="widget-simple">
+                                        <div class="widget-icon pull-left themed-background-fire">
+                                            <i class="hi hi-ok"></i>
+                                        </div>
+                                        <h3 class="widget-content text-right">
+												<strong><%= I18n.t('finish') %></strong>
+                                           
+                                        </h3>
+                                    </div>
+                                </a>
+                                <!-- END Widget -->
+                            </div>
+                        </div>
+                        <!-- END Mini Top Stats Row -->

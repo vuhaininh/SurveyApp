@@ -1,0 +1,44 @@
+<div class="multi-field-wrapper" ng-controller="ImageQuestionCreateController">
+  <div class="multi-fields">
+    <div class="multi-field">
+      <div class="form-group">
+        <label class="col-md-4 control-label">Image</label>
+
+        <div class="col-md-8">
+          <span ui-sortable="sortableOptions" ng-model="images">
+            <div ng-repeat="image in images" class="image-preview">
+              <div>
+                <img ngf-thumbnail="image.file[0]" class="thumb"/>
+                <input type="hidden" ng-value="image.cacheId" name="question[images][][cacheId]"/>
+                <div class="image-preview-editor">
+                    <button type="button" class="btn btn-xs edit-image" title="Edit Photo" ng-click="editImage(image)"><i class="fa fa-edit"></i></button>
+                </div>
+              </div>
+              <input type="text" class="form-control ui-wizard-content question_name" placeholder="Label for this image..." ng-model="image.label" ng-show="image.file[0]" name="question[images][][label]"/>
+            </div>
+          </span>
+
+          <div ng-model="fileToUpload" ngf-multiple="false" ngf-drop ngf-select
+               ngf-accept="'image/*'" ngf-allow-dir="false"
+               ngf-drag-over-class="drag-over" class="drop-box">
+            <i class="fa fa-plus fa-2x" title="Choose a photo to upload"></i>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label">Allow multiple selection</label>
+
+        <div class="col-md-8">
+          <label class="switch switch-primary"><input type="checkbox" class="form-control" name="question[multiple_selection]" ng-model="allowMultipleSelection"/><span></span></label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label">Display label</label>
+
+        <div class="col-md-8">
+          <label class="switch switch-primary"><input type="checkbox" class="form-control" ng-model="displayLabel"/><span></span></label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

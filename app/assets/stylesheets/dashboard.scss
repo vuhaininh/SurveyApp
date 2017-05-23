@@ -1,0 +1,77 @@
+.legend .title {
+    display: block;
+    margin: 1em;
+    line-height: 1.2em;
+    padding: 0 3em;
+	text-align: center;
+
+}
+
+.legend .color-sample {
+    display: block;
+    float: left;
+    width: 1em;
+    height: 1em;
+    border: 2px solid; /* Comment out if you don't want to show the fillColor */
+    border-radius: 0.5em; /* Comment out if you prefer squarish samples */
+    margin-right: 2em;
+}
+
+.legend .value-holder {
+    margin-left: 1em;
+	float:right;
+	font-weight: bold;
+}
+
+$image_preview_size: 100px;
+$border-size: 3px;
+$border-color: #dcdee3;
+.drop-box{
+    background: white;
+    border: $border-size dashed $border-color;
+    width: $image_preview_size;
+    height: $image_preview_size;
+    line-height: $image_preview_size;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+    i {
+      line-height: $image_preview_size - 2*$border-size;
+      color: $border-color;
+    }
+}
+.drop-box.drag-over{
+    border-color: green;
+}
+.crop-image{
+  max-height: 500px;
+  max-width: 400px;
+}
+.image-preview{
+    padding: 0 5px;
+    width: 110px;
+    float: left;
+  .image-preview-editor{
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    width: $image_preview_size;
+    height: $image_preview_size;
+    background-color: rgba(0, 0, 0, 0.5);
+    .edit-image{
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+    }
+  }
+  &:hover .image-preview-editor{
+    visibility: visible;
+  }
+}
+.thumb{
+    height: 100px;
+    width: 100px;
+}
+.jcrop-keymgr {
+  opacity: 0;
+}
